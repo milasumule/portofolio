@@ -1,0 +1,1233 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mila Sumule | Personal Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --green: #355744;
+            --green-dark: #243e30;
+            --sage: #91a58a;
+            --cream: #faf8f2;
+            --white: #ffffff;
+            --text: #455449;
+            --muted: #7b857b;
+            --border: #e7e9df;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(ellipse at 5% 10%, #e8eee2 0, transparent 27%),
+                radial-gradient(ellipse at 95% 35%, #f1e8da 0, transparent 25%),
+                var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* NAVIGASI */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 248, 242, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid #e7e9df;
+        }
+
+        .navbar {
+            width: 86%;
+            max-width: 1150px;
+            margin: auto;
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            color: var(--green-dark);
+            font-family: Georgia, serif;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: -0.8px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #a1b394;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links > li > a,
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 13px;
+            border: none;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            font: inherit;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 9px;
+            transition: 0.25s;
+        }
+
+        .nav-links > li > a:hover,
+        .dropdown-toggle:hover {
+            background: #edf0e8;
+            color: var(--green);
+        }
+
+        .arrow {
+            display: inline-block;
+            font-size: 12px;
+            transition: transform 0.25s;
+        }
+
+        /* DROPDOWN */
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 9px);
+            left: 0;
+            width: 225px;
+            padding: 9px;
+            list-style: none;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 13px;
+            box-shadow: 0 15px 35px #243e3015;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity 0.22s, transform 0.22s, visibility 0.22s;
+        }
+
+        .dropdown-menu::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 11px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 13px;
+            border-radius: 8px;
+            transition: 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f0f3eb;
+            color: var(--green);
+            padding-left: 15px;
+        }
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown:hover .arrow,
+        .dropdown:focus-within .arrow {
+            transform: rotate(180deg);
+        }
+
+        .nav-contact {
+            background: var(--green) !important;
+            color: white !important;
+            border-radius: 9px !important;
+        }
+
+        .nav-contact:hover {
+            background: #496d54 !important;
+        }
+
+        /* BAGIAN BERANDA */
+
+        .hero {
+            width: 86%;
+            max-width: 1150px;
+            min-height: 590px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 65px;
+            padding: 65px 0 85px;
+            position: relative;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #708b70;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            margin-bottom: 20px;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 27px;
+            height: 1px;
+            background: #91a58a;
+        }
+
+        .hero h1 {
+            color: var(--green-dark);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(43px, 5.4vw, 68px);
+            line-height: 1.12;
+            font-weight: 500;
+            letter-spacing: -1.8px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 em {
+            color: #82977b;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            max-width: 490px;
+            color: #6d786e;
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 23px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: transform 0.25s, background 0.25s, box-shadow 0.25s;
+        }
+
+        .button-primary {
+            background: var(--green);
+            color: white;
+            box-shadow: 0 6px 15px #35574420;
+        }
+
+        .button-primary:hover {
+            background: #496d54;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px #35574425;
+        }
+
+        .button-outline {
+            border: 1px solid #d9e0d4;
+            color: var(--green);
+            background: #ffffff80;
+        }
+
+        .button-outline:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* FOTO PROFIL */
+
+        .hero-visual {
+            position: relative;
+            width: 100%;
+            max-width: 370px;
+            justify-self: center;
+            padding: 17px;
+        }
+
+        .photo-frame {
+            position: relative;
+            z-index: 1;
+            padding: 11px;
+            background: #fffefa;
+            border: 1px solid #e4e8dc;
+            border-radius: 180px 180px 24px 24px;
+            box-shadow: 0 22px 55px #334c3515;
+            transform: rotate(2deg);
+            transition: transform 0.4s;
+        }
+
+        .photo-frame:hover {
+            transform: rotate(0deg) translateY(-5px);
+        }
+
+        .photo-frame img {
+            display: block;
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 170px 170px 17px 17px;
+        }
+
+        .photo-decoration {
+            position: absolute;
+            border: 1px solid #b8c8ae;
+            border-radius: 180px 180px 25px 25px;
+            inset: 0;
+            transform: rotate(-5deg);
+        }
+
+        .floating-note {
+            position: absolute;
+            z-index: 2;
+            top: 35px;
+            left: -15px;
+            width: 57px;
+            height: 57px;
+            display: grid;
+            place-items: center;
+            background: #fffefa;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            color: #82977b;
+            font-size: 29px;
+            box-shadow: 0 8px 25px #243e3010;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-star {
+            position: absolute;
+            z-index: 2;
+            right: -5px;
+            bottom: 75px;
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            background: #edf0e5;
+            color: #84967c;
+            border-radius: 50%;
+            font-size: 27px;
+            animation: float 4s ease-in-out infinite 1s;
+        }
+
+        .hero-caption {
+            text-align: center;
+            color: #849080;
+            font-family: Georgia, serif;
+            font-size: 14px;
+            font-style: italic;
+            margin-top: 23px;
+            letter-spacing: 0.5px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* JUDUL BAGIAN */
+
+        .section {
+            padding: 85px 0;
+            scroll-margin-top: 70px;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 38px;
+        }
+
+        .section-label {
+            color: #82977b;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .section-heading h2 {
+            color: var(--green-dark);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(30px, 4vw, 40px);
+            font-weight: 500;
+            line-height: 1.3;
+            margin: 9px 0;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .heading-flower {
+            display: block;
+            color: #a7b79c;
+            font-size: 23px;
+            margin-top: 8px;
+        }
+
+        /* PROFIL */
+
+        .profile-section {
+            background: #ffffff80;
+            border-top: 1px solid #e9ebe3;
+            border-bottom: 1px solid #e9ebe3;
+        }
+
+        .profile-card {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 35px;
+            align-items: center;
+            padding: 35px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 12px 35px #243e3008;
+        }
+
+        .profile-intro {
+            padding-right: 22px;
+            border-right: 1px solid #edf0e9;
+        }
+
+        .profile-symbol {
+            width: 55px;
+            height: 55px;
+            display: grid;
+            place-items: center;
+            background: #eef2e9;
+            border-radius: 16px;
+            font-size: 27px;
+            margin-bottom: 18px;
+        }
+
+        .profile-intro h3 {
+            font-family: Georgia, serif;
+            color: var(--green);
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .profile-intro p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .info-item {
+            padding: 16px;
+            background: #f8f9f5;
+            border: 1px solid #edf0e8;
+            border-radius: 12px;
+            transition: border-color 0.25s, transform 0.25s;
+        }
+
+        .info-item:hover {
+            border-color: #b8c8ae;
+            transform: translateY(-3px);
+        }
+
+        .info-item small {
+            display: block;
+            color: #899487;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 600;
+            overflow-wrap: anywhere;
+        }
+
+        /* CARD */
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 21px;
+        }
+
+        .item-card {
+            position: relative;
+            overflow: hidden;
+            min-height: 205px;
+            padding: 25px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            box-shadow: 0 7px 25px #243e3007;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .item-card::before {
+            content: "";
+            position: absolute;
+            width: 115px;
+            height: 115px;
+            top: -55px;
+            right: -45px;
+            border-radius: 50%;
+            background: #eef2e8;
+            transition: transform 0.35s;
+        }
+
+        .item-card:hover {
+            transform: translateY(-7px);
+            border-color: #d0dcc9;
+            box-shadow: 0 16px 35px #243e3012;
+        }
+
+        .item-card:hover::before {
+            transform: scale(1.35);
+        }
+
+        .item-icon {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            width: 53px;
+            height: 53px;
+            margin-bottom: 20px;
+            border: 1px solid #e6ebdf;
+            border-radius: 15px;
+            background: #f0f3eb;
+            font-size: 25px;
+            transition: transform 0.3s;
+        }
+
+        .item-card:hover .item-icon {
+            transform: rotate(-5deg) scale(1.07);
+        }
+
+        .item-card h3 {
+            color: var(--green);
+            font-family: Georgia, serif;
+            font-size: 19px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .item-card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .skill-note {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 4px 10px;
+            background: #eff3eb;
+            border-radius: 20px;
+            color: #70866d;
+            font-size: 10px;
+        }
+
+        /* HOBI */
+
+        .hobby-section {
+            background: #edf0e7;
+            border-top: 1px solid #e2e7dc;
+            border-bottom: 1px solid #e2e7dc;
+        }
+
+        .hobby-card {
+            background: #fffefa;
+        }
+
+        .hobby-card::before {
+            background: #f1eadf;
+        }
+
+        .hobby-card .item-icon {
+            background: #f7f3eb;
+            border-color: #eee7da;
+        }
+
+        .hobby-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #a0ad96;
+            font-family: Georgia, serif;
+            font-size: 13px;
+        }
+
+        /* KONTAK */
+
+        .contact-card {
+            position: relative;
+            overflow: hidden;
+            padding: 55px 25px;
+            text-align: center;
+            border: 1px solid #dfe6d9;
+            border-radius: 22px;
+            background:
+                radial-gradient(circle at 5% 100%, #dce7d7 0, transparent 35%),
+                radial-gradient(circle at 100% 0%, #eee6d8 0, transparent 35%),
+                #f1f3ec;
+        }
+
+        .contact-decoration {
+            position: absolute;
+            color: #bdcbb3;
+            font-size: 40px;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .contact-decoration.left {
+            top: 25px;
+            left: 35px;
+        }
+
+        .contact-decoration.right {
+            bottom: 25px;
+            right: 35px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 18px;
+            background: #fffefa;
+            border: 1px solid #e2e8db;
+            border-radius: 18px;
+            font-size: 27px;
+        }
+
+        .contact-card h2 {
+            color: var(--green-dark);
+            font-family: Georgia, serif;
+            font-size: 34px;
+            font-weight: 500;
+        }
+
+        .contact-card p {
+            max-width: 440px;
+            margin: 12px auto 25px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px 15px;
+            text-align: center;
+            background: #faf9f5;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: #7f897e;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: #9aaa91;
+        }
+
+        /* ANIMASI SAAT HALAMAN DIBUKA */
+
+        @media (prefers-reduced-motion: no-preference) {
+            .hero-text {
+                animation: enterLeft 0.8s ease both;
+            }
+
+            .hero-visual {
+                animation: enterRight 0.8s ease both;
+            }
+
+            @keyframes enterLeft {
+                from {
+                    opacity: 0;
+                    transform: translateX(-18px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+
+            @keyframes enterRight {
+                from {
+                    opacity: 0;
+                    transform: translateX(18px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+            .navbar {
+                width: 92%;
+                flex-direction: column;
+                justify-content: center;
+                gap: 7px;
+                padding: 14px 0;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 3px;
+            }
+
+            .nav-links > li > a,
+            .dropdown-toggle {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .hero {
+                width: 90%;
+                grid-template-columns: 1fr 0.8fr;
+                gap: 25px;
+                min-height: 510px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-visual {
+                max-width: 310px;
+            }
+
+            .photo-frame img {
+                height: 340px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .profile-card {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .profile-intro {
+                padding-right: 0;
+                padding-bottom: 22px;
+                border-right: none;
+                border-bottom: 1px solid #edf0e9;
+            }
+
+            .card-grid {
+                gap: 15px;
+            }
+
+            .item-card {
+                padding: 21px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                width: 95%;
+            }
+
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links > li > a,
+            .dropdown-toggle {
+                padding: 7px;
+                font-size: 11px;
+            }
+
+            .dropdown-menu {
+                width: 200px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 40px;
+                padding-bottom: 65px;
+                gap: 35px;
+            }
+
+            .hero-text {
+                order: 2;
+            }
+
+            .hero-visual {
+                order: 1;
+                width: 78%;
+                max-width: 285px;
+            }
+
+            .photo-frame img {
+                height: 330px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 14px;
+            }
+
+            .eyebrow {
+                font-size: 9px;
+                letter-spacing: 1.6px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-heading {
+                margin-bottom: 27px;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .item-card {
+                min-height: 205px;
+                padding: 17px;
+            }
+
+            .item-card h3 {
+                font-size: 17px;
+            }
+
+            .item-card p {
+                font-size: 12px;
+            }
+
+            .item-icon {
+                width: 46px;
+                height: 46px;
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+
+            .profile-card {
+                padding: 23px;
+            }
+
+            .contact-card {
+                padding: 43px 20px;
+            }
+
+            .contact-card h2 {
+                font-size: 29px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .item-card {
+                min-height: auto;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .dropdown-menu {
+                width: 185px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGASI -->
+    <header>
+        <nav class="navbar" aria-label="Navigasi utama">
+            <a href="#beranda" class="logo">Mila<span>.</span></a>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#beranda">Beranda</a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#profil" class="dropdown-toggle">
+                        Tentang Saya
+                        <span class="arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#profil">🌿 Profil Saya</a>
+                        </li>
+                        <li>
+                            <a href="#keterampilan">💻 Keterampilan</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#hobi" class="dropdown-toggle">
+                        Favorit Saya
+                        <span class="arrow">⌄</span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#musik">🎵 Musik & Kalimba</a>
+                        </li>
+                        <li>
+                            <a href="#ballet">🩰 Ballet</a>
+                        </li>
+                        <li>
+                            <a href="#mengedit">🎬 Mengedit</a>
+                        </li>
+                        <li>
+                            <a href="#belajar">📚 Belajar Hal Baru</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#kontak" class="nav-contact">Kontak ↗</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- BERANDA -->
+        <section class="hero" id="beranda">
+
+            <div class="hero-text">
+                <div class="eyebrow">A LITTLE INTRODUCTION</div>
+
+                <h1>
+                    Halo, saya<br>
+                    <em>Mila Sumule.</em>
+                </h1>
+
+                <p class="hero-description">
+                    Mahasiswa Teknik Informatika yang senang belajar,
+                    mengeksplorasi hal baru, dan menikmati proses
+                    bertumbuh menjadi versi diri yang lebih baik.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#profil" class="button button-primary">
+                        Kenali Saya <span>↗</span>
+                    </a>
+
+                    <a href="#hobi" class="button button-outline">
+                        Hal Favorit Saya
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="photo-decoration"></div>
+
+                <div class="photo-frame">
+                    <img src="milaa.jpg" alt="Foto Mila Sumule">
+                </div>
+
+                <div class="floating-note">♫</div>
+                <div class="floating-star">✧</div>
+
+                <p class="hero-caption">growing at my own pace ♡</p>
+            </div>
+
+        </section>
+
+        <!-- PROFIL -->
+        <section class="section profile-section" id="profil">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">Get to know me</span>
+                    <h2>Tentang Saya</h2>
+                    <p>Sedikit cerita tentang diri saya.</p>
+                    <span class="heading-flower">✳</span>
+                </div>
+
+                <div class="profile-card">
+
+                    <div class="profile-intro">
+                        <div class="profile-symbol">🌱</div>
+
+                        <h3>Senang bertumbuh.</h3>
+
+                        <p>
+                            Saya memiliki ketertarikan pada teknologi,
+                            kreativitas, dan pengembangan diri.
+                            Saya masih terus belajar dan ingin
+                            mengembangkan kemampuan sedikit demi sedikit.
+                        </p>
+                    </div>
+
+                    <div class="info-grid">
+
+                        <div class="info-item">
+                            <small>Nama Lengkap</small>
+                            <strong>Mila Sumule</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Pendidikan</small>
+                            <strong>Teknik Informatika</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Universitas</small>
+                            <strong>Universitas Cokroaminoto Palopo</strong>
+                        </div>
+
+                        <div class="info-item">
+                            <small>Ketertarikan</small>
+                            <strong>Teknologi & Kreativitas</strong>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- KETERAMPILAN -->
+        <section class="section" id="keterampilan">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">Currently learning</span>
+                    <h2>Keterampilan</h2>
+                    <p>Hal yang sedang saya pelajari dalam perjalanan kuliah.</p>
+                    <span class="heading-flower">✳</span>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="item-card">
+                        <div class="item-icon">🌐</div>
+                        <h3>HTML</h3>
+                        <p>
+                            Belajar menyusun struktur dan elemen
+                            dalam sebuah halaman website.
+                        </p>
+                        <span class="skill-note">Sedang dipelajari</span>
+                    </article>
+
+                    <article class="item-card">
+                        <div class="item-icon">🎨</div>
+                        <h3>CSS</h3>
+                        <p>
+                            Belajar mengatur warna, tampilan,
+                            dan tata letak agar website lebih menarik.
+                        </p>
+                        <span class="skill-note">Sedang dipelajari</span>
+                    </article>
+
+                    <article class="item-card">
+                        <div class="item-icon">💻</div>
+                        <h3>Web Development</h3>
+                        <p>
+                            Mengenal proses pembuatan website
+                            dan mencoba menerapkannya dalam latihan.
+                        </p>
+                        <span class="skill-note">Terus berkembang</span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- HOBI DAN HAL YANG DISUKAI -->
+        <section class="section hobby-section" id="hobi">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="section-label">Little things I love</span>
+                    <h2>Hobi & Hal yang Saya Sukai</h2>
+                    <p>Hal-hal sederhana yang membuat hari terasa lebih berwarna.</p>
+                    <span class="heading-flower">✳</span>
+                </div>
+
+                <div class="card-grid">
+
+                    <article class="item-card hobby-card" id="musik">
+                        <span class="hobby-number">01</span>
+                        <div class="item-icon">🎵</div>
+                        <h3>Musik & Kalimba</h3>
+                        <p>
+                            Menikmati musik dan belajar memainkan
+                            kalimba di waktu luang.
+                        </p>
+                    </article>
+
+                    <article class="item-card hobby-card" id="ballet">
+                        <span class="hobby-number">02</span>
+                        <div class="item-icon">🩰</div>
+                        <h3>Ballet</h3>
+                        <p>
+                            Menyukai keindahan gerakan ballet
+                            dan belajar secara mandiri.
+                        </p>
+                    </article>
+
+                    <article class="item-card hobby-card" id="mengedit">
+                        <span class="hobby-number">03</span>
+                        <div class="item-icon">🎬</div>
+                        <h3>Mengedit</h3>
+                        <p>
+                            Menikmati proses mengedit dan menggabungkan
+                            elemen agar menjadi sesuatu yang menarik.
+                        </p>
+                    </article>
+
+                    <article class="item-card hobby-card" id="belajar">
+                        <span class="hobby-number">04</span>
+                        <div class="item-icon">📚</div>
+                        <h3>Belajar Hal Baru</h3>
+                        <p>
+                            Senang menambah wawasan, mengeksplorasi
+                            pengetahuan, dan mencoba keterampilan baru.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="section" id="kontak">
+            <div class="container">
+
+                <div class="contact-card">
+                    <span class="contact-decoration left">✧</span>
+                    <span class="contact-decoration right">✳</span>
+
+                    <div class="contact-icon">✉</div>
+
+                    <span class="section-label">Let's connect</span>
+
+                    <h2>Senang Bertemu Kamu!</h2>
+
+                    <p>
+                        Terima kasih sudah meluangkan waktu
+                        untuk mengenal saya melalui halaman ini.
+                    </p>
+
+                    <a href="mailto:emailkamu@example.com"
+                       class="button button-primary">
+                        Kirim Email ↗
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Made with care <span>♡</span> by Mila Sumule · 2026</p>
+    </footer>
+
+</body>
+</html>
